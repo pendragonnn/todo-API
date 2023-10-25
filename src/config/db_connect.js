@@ -1,16 +1,14 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
-const sequelize = new Sequelize(
-  process.env.DATABASE_NAME,
-  process.env.DATABASE_USERNAME,
-  process.env.DATABASE_PASSWORD,
-  {
-    host: process.env.DATABASE_HOST,
-    dialect: process.env.DATABASE_DIALECT,
-    port: process.env.DATABASE_PORT,
-  }
-);
+const sequelize = new Sequelize({
+  database: process.env.POSTGRES_DB,
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
+  host: process.env.POSTGRES_HOST,
+  port: process.env.POSTGRES_PORT,
+  dialect: process.env.POSTGRES_DIALECT,
+});
 
 try {
   sequelize.authenticate();

@@ -3,21 +3,31 @@
     "username": "postgres",
     "password": "admin",
     "database": "todo",
-    "host": "localhost",
-    "dialect": "postgres"
+    "host": "pgsqldb",
+    "dialect": "postgres",
+    "dialectoptions": {
+      "ssl": {
+        "rejectunauthorized": false
+      }
+    }
   },
   "test": {
     "username": "postgres",
     "password": "admin",
     "database": "todo",
-    "host": "localhost",
-    "dialect": "postgres"
+    "host": "pgsqldb", 
+    "dialect": "postgres",
+    "dialectoptions": {
+      "ssl": {
+        "rejectunauthorized": false
+      }
+    }
   },
   "production": {
     "username": "postgres",
     "password": "admin",
     "database": "todo",
-    "host": "localhost",
+    "host": "pgsqldb",
     "dialect": "postgres"
   }
 }
