@@ -1,13 +1,13 @@
-FROM node:lts-alpine3.17
+FROM node:14
 
-WORKDIR /todoapidocker/src/app
+EXPOSE 5500
 
-COPY package*.json ./
+WORKDIR /src
+
+COPY package.json package-log*.json ./
 
 RUN npm install
 
 COPY . .
-
-EXPOSE 8090
 
 CMD ["node", "server.js"]

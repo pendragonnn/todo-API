@@ -3,7 +3,6 @@ const router = express.Router()
 const TodoController = require('../controllers/todo.controller')
 const todoValidator = require('../middleware/todo.validator.middleware')
 
-
 router.get('/', TodoController.getAllTodo)
 
 router.get('/:id', TodoController.getTodoById)

@@ -8,6 +8,7 @@ require('dotenv').config()
 const app = new express()
 app.use(express.json());
 app.use(morgan("tiny"));
+
 app.use('/todo', routerTodo)
 
 if(process.env.NODE_ENV != "test") {

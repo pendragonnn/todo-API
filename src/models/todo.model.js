@@ -24,13 +24,13 @@ const Todo = sequelize.define("todo", {
   }
 });
 
-// sequelize
-//   .sync()
-//   .then(() => {
-//     console.log("Tabel To-Do berhasil dibuat.");
-//   })
-//   .catch((error) => {
-//     console.error("Gagal membuat tabel To-Do:", error);
-//   });
+sequelize
+  .sync()
+  .then(() => {
+    console.log("Tabel To-Do berhasil dibuat.");
+  })
+  .catch((error) => {
+    console.error("Gagal membuat tabel To-Do:", error);
+  });
 
 module.exports = Todo;

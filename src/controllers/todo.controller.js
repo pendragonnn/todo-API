@@ -20,9 +20,9 @@ class TodoController {
   static getTodoById = async (req, res) => {
     try {
       const { id } = req.params;
-      const result = await TodoModel.findOne({ where: { id }, attributes: ['id', 'title', 'description', 'completed'] });
+      const result = await TodoModel.findOne({ where: { id }, attributes: ['id', 'title', 'description', 'completed', 'isDeleted'] });
 
-      if (!result) {
+      if (!result || result.dataValues.isDeleted) { 
         res.status(404).json({
           status: "Fail",
           message: "Data not found",
@@ -69,7 +69,6 @@ class TodoController {
 
       const idExist = await TodoModel.findOne({ where: { id } });
 
-
       if (!idExist || idExist.dataValues.isDeleted) {
         res.status(404).json({
           status: "Fail",
@@ -104,7 +103,7 @@ class TodoController {
 
       const idExist = await TodoModel.findOne({ where: { id } });
 
-      if (!idExist) {
+      if (!idExist || idExist.dataValues.isDeleted) {
         res.status(404).json({
           status: "Fail",
           message: "Data not found",
